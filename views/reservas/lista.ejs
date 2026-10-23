@@ -1,0 +1,16 @@
+<h3>Reservas Agendadas Disponibles</h3>
+
+<% if (reservas.length === 0) { %>
+  <p>No existen turnos asignados actualmente para ninguna sala de estudio.</p>
+<% } else { %>
+  <div>
+    <% reservas.forEach(reserva => { %>
+      <div class="card">
+        <h4><%= reserva.sala %> — Turno <%= reserva.turno %></h4>
+        <p><strong>Estudiante Responsable:</strong> <%= reserva.estudiante %></p>
+        <p><strong>Fecha asignada:</strong> <%= reserva.fecha %></p>
+        <a href="/reservas/<%= reserva.id %>">Ver detalles completos de la reserva</a>
+      </div>
+    <% }) %>
+  </div>
+<% } %>

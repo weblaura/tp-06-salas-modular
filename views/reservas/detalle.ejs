@@ -1,0 +1,11 @@
+<h3>Comprobante Detallado de Reserva #<%= reserva.id %></h3>
+<div class="card">
+  <p><strong>Número Identificador único:</strong> <%= reserva.id %></p>
+  <p><strong>Estudiante Responsable:</strong> <%= reserva.estudiante %></p>
+  <p><strong>Correo Electrónico registrado:</strong> <%= reserva.email %></p>
+  <p><strong>Sala física asignada:</strong> <%= reserva.sala %></p>
+  <p><strong>Fecha reservada:</strong> <%= reserva.fecha %></p>
+  <p><strong>Turno del día:</strong> <%= reserva.turno %></p>
+  <p><strong>Cantidad de integrantes asistentes:</strong> <%= reserva.personas %></p>
+</div>
+<p><a href="/reservas">&larr; Volver al panel de listado de reservas</a></p>

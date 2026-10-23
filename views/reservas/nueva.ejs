@@ -1,0 +1,56 @@
+<h3>Formulario de Solicitud de Reserva</h3>
+
+<% if (errores) { %>
+  <div role="alert" class="alert">
+    <strong>Se han detectado inconvenientes en su envío:</strong>
+    <ul>
+      <% errores.forEach(error => { %>
+        <li><%= error %></li>
+      <% }) %>
+    </ul>
+  </div>
+<% } %>
+
+<form action="/reservas" method="POST">
+  <div class="form-group">
+    <label Lik for="estudiante">Nombre Completo del Estudiante:</label>
+    <input type="text" id="estudiante" name="estudiante" value="<%= valores.estudiante || '' %>">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Correo Electrónico Institucional:</label>
+    <input type="text" id="email" name="email" value="<%= valores.email || '' %>">
+  </div>
+
+  <div class="form-group">
+    <label for="sala">Seleccionar Sala:</label>
+    <select id="sala" name="sala">
+      <option value="">-- Elija una opción --</option>
+      <option value="Sala Norte" <%= valores.sala === 'Sala Norte' ? 'selected' : '' %>>Sala Norte</option>
+      <option value="Sala Sur" <%= valores.sala === 'Sala Sur' ? 'selected' : '' %>>Sala Sur</option>
+      <option value="Sala Multimedia" <%= valores.sala === 'Sala Multimedia' ? 'selected' : '' %>>Sala Multimedia</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="fecha">Fecha de Reserva:</label>
+    <input type="date" id="fecha" name="fecha" value="<%= valores.fecha || '' %>">
+  </div>
+
+  <div class="form-group">
+    <label for="turno">Turno Horario:</label>
+    <select id="turno" name="turno">
+      <option value="">-- Elija un Turno --</option>
+      <option value="Mañana" <%= valores.turno === 'Mañana' ? 'selected' : '' %>>Mañana</option>
+      <option value="Tarde" <%= valores.turno === 'Tarde' ? 'selected' : '' %>>Tarde</option>
+      <option value="Noche" <%= valores.turno === 'Noche' ? 'selected' : '' %>>Noche</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="personas">Cantidad de Integrantes (1 a 6):</label>
+    <input type="number" id="personas" name="personas" value="<%= valores.personas || '' %>">
+  </div>
+
+  <button type="submit">Confirmar Solicitud de Reserva</button>
+</form>

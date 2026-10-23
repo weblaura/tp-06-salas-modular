@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= titulo %></title>
+  <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Biblioteca Central</h1>
+    <% if (locals.seccion) { %>
+      <h2><%= seccion %></h2>
+    <% } %>
+    <nav>
+      <a href="/">Inicio</a>
+      <a href="/reservas">Listado de Reservas</a>
+      <a href="/reservas/nueva">Nueva Reserva</a>
+      <a href="/estado">Estado JSON</a>
+    </nav>
+  </header>
+
+  <main>
+    <%- body %>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Sistema de Gestión de Salas de Estudio Universitario.</p>
+    <p style="font-size: 0.8rem; color: #6c757d;">ID de Solicitud de red: <%= locals.solicitudId %></p>
+  </footer>
+</body>
+</html>
